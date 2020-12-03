@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html style ="height: 100%; border: 0ch; padding: 0ch;margin: 0ch;" >
+<head>
+	<title>Company Form</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script> 
+		function validate()                                    
+		{ 
+			var name = document.forms["add_company_form"]["name"];               
+			var email = document.forms["add_company_form"]["email"];    
+			var address = document.forms["add_company_form"]["address"];  
+			var phone = document.forms["add_company_form"]["phone"];  
+			 
+			if (name.value == "")                                  
+			{ 
+				window.alert("Please enter your name."); 
+				name.focus(); 
+				return false; 
+			} 
+		
+			if (email.value == "")                                   
+			{ 
+				window.alert("Please enter a valid e-mail address."); 
+				email.focus(); 
+				return false; 
+			} 
+			
+			if (address.value == "")                        
+			{ 
+				window.alert("Please enter your address"); 
+				address.focus(); 
+				return false; 
+			}
+			
+			if (phone.value == "")                        
+			{ 
+				window.alert("Please enter your phone"); 
+				phone.focus(); 
+				return false; 
+			} 
+			return true; 
+        }
+    </script> 
+</head>
+<body>
+    <div class="container-fluid">
+	    <div class="border border-dark" style="margin:10% 10% 10% 10%; z-index: 1; background-color: white;">
+	    	<div style="padding:2% 2% 2% 5% ;position: inherit;" >
+	    		<form class="form-horizontal" action = "/company/add" method = "post" name ="add_company_form"onsubmit="return validate()">
+					<br>
+
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="name"><strong style="font-size: large;">Name of the Company:</strong></label>
+						<div class="col-sm-10">
+						<input type="text" class="form-control" style="background-color: #f2f2f2" id="name" placeholder="Enter name of company" name="name">
+					</div>
+					<br>
+
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="email"><strong style="font-size: large;">Email of the company:</strong></label>
+						<div class="col-sm-10">
+						<input type="email" class="form-control" style="background-color: #f2f2f2" id="email" placeholder="Enter email of company" name="email">
+					</div>
+					<br>
+
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="address"><strong style="font-size: large;">Address of the company:</strong></label>
+						<div class="col-sm-10">          
+						<input type="text" class="form-control" style="background-color: #f2f2f2" id="address" placeholder="Enter Address of company" name="address">
+					</div>
+					<br>
+
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="phone"><strong style="font-size: large;">Phone of the company:</strong></label>
+						<div class="col-sm-10">          
+						<input type="number" class="form-control" style="background-color: #f2f2f2" id="phone" placeholder="Enter phone number of company" name="phone">
+					</div>
+					<br>
+
+					<div class="form-group text-center">        
+						<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" name="addcompany" class="btn btn-primary btn-lg">Submit</button>
+					</div>
+					<br>
+
+				</form>
+	    	</div>
+	    </div>
+	</div>
+</body>
+</html>

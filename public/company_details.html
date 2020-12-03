@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <title>Company Details</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script>
+            fetch("https://inventoms.herokuapp.com/company").then(
+                res=>{
+                    res.json().then(
+                        data=>{
+                            console.log(data);
+                            if(data.length >0){
+                                var temp = "";
+                                var temp1 = "";
+                                var temp2 = "";
+                                var temp3 = "";
+                                var temp4 = "";
+
+                                data.forEach(element => {
+                                    temp += element.name
+                                    temp1 += element.email
+                                    temp2 += element.address
+                                    temp3 += element.phone
+                                    temp4 += element.gst
+                                });
+
+                                document.getElementById("name").innerHTML = temp;
+                                document.getElementById("email").innerHTML = temp1;
+                                document.getElementById("address").innerHTML = temp2;
+                                document.getElementById("phone").innerHTML = temp3;
+                                document.getElementById("gst").innerHTML = temp4;
+                            }
+                        }
+                    )
+                }
+            )
+        </script>
+    </head>
+    <body>
+        <div class='container-fluid p-0'>
+            <nav class="navbar navbar-default bg-primary">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a href="https://inventoms.herokuapp.com/home" class="navbar-brand text-light"><h2>MyInventory</h2></a>
+                    </div>
+                     <ul class="nav navbar-nav">
+                        <div class="row">
+                            <div class="col">
+                                <li><a class="text-light" href="https://inventoms.herokuapp.com/buyer"><h5>Buyers</h5></a></li>
+                            </div>
+                            <div class="col">
+                                <li><a class="text-light" href="https://inventoms.herokuapp.com/technician"><h5>Technician</h5></a></li>
+                            </div>
+                            <div class="col">
+                                <li><a class="text-light" href="https://inventoms.herokuapp.com/company/details"><h5>Company Details</h5></a></li>
+                            </div>
+                            <div class="col">
+                                <li><a class="text-light" href="https://inventoms.herokuapp.com/other_godowns"><h5>Other gowdowns</h5></a></li>
+                            </div>
+                            <div class="col">
+                                <li><a class="text-light" href="https://inventoms.herokuapp.com/logout"><h5>Logout</h5></a></li>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </nav>
+            <div class="row">
+                <div class="col-sm-3">
+                    <ul class="list-group p-0">
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/equipment/form" class="text-dark"><h5>Add Equipment</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/edit_equip/rform" class="text-dark"><h5>Remove Equipment</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/edit_equip/change_quantity_form" class="text-dark"><h5>Change equipment quantity</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/edit_equip/change_price_form" class="text-dark"><h5>Change equipment price</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/buyer/aform" class="text-dark"><h5>Add a new buyer</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/technician/afrom" class="text-dark"><h5>Add a new technician</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/buyer/rform" class="text-dark"><h5>Remove a buyer</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/technician/rform" class="text-dark"><h5>Remove a technician</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/sell_equipment/form" class="text-dark"><h5>Sell an equipment</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/maintenance/aform" class="text-dark"><h5>Add Maintenance</h5></a></li><li class="list-group-item"><a href="https://inventoms.herokuapp.com/sell_equip/transactions" class="text-dark"><h5>Sale history</h5></a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-9 p-4">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card bg-primary p-3 mb-3">
+                                <h4 class="card-title text-light">Company overview</h4>
+                                <hr class="bg-light">
+                                <div class="row">
+                                    <div class="col card-text p-2 text-light">Name:<h3 id="name"></h3></div>
+                                    <div class="col card-text p-2 text-light">Phone No.:<h3 id ="phone"></h3></div>
+                                    <div class="col card-text p-2 text-light">Email ID:<h3 id = "email"></h3></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col card-text p-2 text-light">Address:<h3 id = "address"></h3></div>
+                                    <div class="col card-text p-2 text-light">GST No.:<h3 id ="gst"></h3></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

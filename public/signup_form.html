@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html style ="height: 100%; border: 0ch; padding: 0ch;margin: 0ch;" >
+<head>
+	<title>Signup Page</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script> 
+		function validate()                                    
+		{ 
+			var name = document.forms["signup_form"]["name"];               
+			var email = document.forms["signup_form"]["email"];    
+			var password = document.forms["signup_form"]["pwd"];  
+			var cpwd = document.forms["signup_form"]["cpwd"];  
+			var gst = document.forms["signup_form"]["gst"];  
+			var godownaddress = document.forms["signup_form"]["godownaddress"];  
+			
+			if (name.value == "")                                  
+			{ 
+				window.alert("Please enter your name."); 
+				name.focus(); 
+				return false; 
+			} 
+		
+			if (email.value == "")                                   
+			{ 
+				window.alert("Please enter a valid e-mail address."); 
+				email.focus(); 
+				return false; 
+			} 
+			
+			if (password.value == "")                        
+			{ 
+				window.alert("Please enter your password"); 
+				password.focus(); 
+				return false; 
+			} 
+
+			if (cpwd.value == "")                        
+			{ 
+				window.alert("Please enter your password"); 
+				cpwd.focus(); 
+				return false; 
+			}
+
+			if (gst.value == "")                        
+			{ 
+				window.alert("Please enter your company;s gst num"); 
+				gst.focus(); 
+				return false; 
+			}
+
+			if (godownaddress.value == "")                        
+			{ 
+				window.alert("Please enter your godown address"); 
+				godownaddress.focus(); 
+				return false; 
+			}
+			return true; 
+        }
+    </script> 
+</head>
+<body>
+    <div class="container-fluid">
+	    <div class="border border-dark" style="margin:10% 10% 10% 10%; z-index: 1; background-color: white;">
+	    	<div style="padding:2% 2% 2% 5% ;position: inherit;" >
+	    		<form class="form-horizontal" action = "/signup" method = "post" name ="signup_form" onsubmit="return validate()">
+					<br>
+
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="name"><strong style="font-size: large;">Name:</strong></label>
+						<div class="col-sm-10">
+						<input type="text" class="form-control" style="background-color: #f2f2f2" id="name" placeholder="Enter name" name="name">
+					</div>
+					<br>
+
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="email"><strong style="font-size: large;">Email:</strong></label>
+						<div class="col-sm-10">
+						<input type="email" class="form-control" style="background-color: #f2f2f2" id="email" placeholder="Enter email" name="email">
+					</div>
+					<br>
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="pwd"><strong style="font-size: large;">Password:</strong></label>
+						<div class="col-sm-10">          
+						<input type="password" class="form-control" style="background-color: #f2f2f2" id="pwd" placeholder="Enter password" name="pwd">
+					</div>
+					<br>
+
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="cpwd"><strong style="font-size: large;">Password:</strong></label>
+						<div class="col-sm-10">          
+						<input type="password" class="form-control" style="background-color: #f2f2f2" id="cpwd" placeholder="ReEnter password" name="cpwd">
+					</div>
+					<br>
+
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="gst"><strong style="font-size: large;">Company GST number:</strong></label>
+						<div class="col-sm-10">          
+						<input type="text" class="form-control" style="background-color: #f2f2f2" id="gst" placeholder="Enter GST number:" name="gst">
+					</div>
+					<br>
+					  
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="godownaddress"><strong style="font-size: large;">Godown Address:</strong></label>
+						<div class="col-sm-10">          
+						<input type="text" class="form-control" style="background-color: #f2f2f2" id="godownaddress" placeholder="Enter godown Address" name="godownaddress">
+					</div>
+					</br>
+
+					<div class="form-group text-center">        
+						<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" name="signup" class="btn btn-primary btn-lg">Submit</button>
+					</div>
+					<br>
+					
+					<div class="form-group text-center">        
+						<div class="col-sm-offset-2 col-sm-10">
+						<a href="https://inventoms.herokuapp.com/login/form" style="color: blue">Already have an account? Login</a>
+					</div>
+				    <br>
+				</form>
+	    	</div>
+	    </div>
+	</div>
+</body>
+</html>

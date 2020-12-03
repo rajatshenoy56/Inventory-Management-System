@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add equipment</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script> 
+		function validate()                                    
+		{ 
+				var equipmentid = document.forms["remove_equipment_form"]["equipmentid"];
+			 
+				if (equipmentid.value == "")                                  
+				{ 
+						window.alert("Please enter equipment id."); 
+						equipmentid.focus(); 
+						return false; 
+				}
+				return true; 
+        }
+    </script> 
+</head>
+<body>
+    <div class='container-fluid p-0'>
+        <nav class="navbar navbar-default bg-primary">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="https://inventoms.herokuapp.com/home" class="navbar-brand text-light"><h2>MyInventory</h2></a>
+                </div>
+                 <ul class="nav navbar-nav">
+                        <div class="row">
+                            <div class="col">
+                                <li><a class="text-light" href="https://inventoms.herokuapp.com/buyer"><h5>Buyers</h5></a></li>
+                            </div>
+                            <div class="col">
+                                <li><a class="text-light" href="https://inventoms.herokuapp.com/technician"><h5>Technician</h5></a></li>
+                            </div>
+                            <div class="col">
+                                <li><a class="text-light" href="https://inventoms.herokuapp.com/company/details"><h5>Company Details</h5></a></li>
+                            </div>
+                            <div class="col">
+                                <li><a class="text-light" href="https://inventoms.herokuapp.com/other_godowns"><h5>Other gowdowns</h5></a></li>
+                            </div>
+                            <div class="col">
+                                <li><a class="text-light" href="https://inventoms.herokuapp.com/logout"><h5>Logout</h5></a></li>
+                            </div>
+                        </div>
+                    </ul>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col-sm-3">
+                <ul class="list-group p-0">
+                    <li class="list-group-item"><a href="https://inventoms.herokuapp.com/equipment/form" class="text-dark"><h5>Add Equipment</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/edit_equip/remove_form" class="text-dark"><h5>Remove Equipment</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/edit_equip/change_quantity_form" class="text-dark"><h5>Change equipment quantity</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/edit_equip/change_price_form" class="text-dark"><h5>Change equipment price</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/buyer/aform" class="text-dark"><h5>Add a new buyer</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/technician/afrom" class="text-dark"><h5>Add a new technician</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/buyer/rform" class="text-dark"><h5>Remove a buyer</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/technician/rform" class="text-dark"><h5>Remove a technician</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/sell_equipment/form" class="text-dark"><h5>Sell an equipment</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/maintenance/aform" class="text-dark"><h5>Add Maintenance</h5></a></li><li class="list-group-item"><a href="https://inventoms.herokuapp.com/sell_equip/transactions" class="text-dark"><h5>Sale history</h5></a></li>
+                </ul>
+            </div>
+            <div class="col-sm-9 p-4">
+                <div class="row">
+                    <div class="col">
+                        <form class="form-horizontal" action = "/sell_equip" method = "post" name ="sell_equipment_form" onsubmit="return validate()">
+                            <br>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="equipmentid"><strong style="font-size: large;">Equipment ID:</strong></label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" style="background-color: #f2f2f2" id="equipmentid" placeholder="Enter Equipment ID to be sold" name="equipmentid">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="buyerid"><strong style="font-size: large;">Buyer ID:</strong></label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" style="background-color: #f2f2f2" id="buyerid" placeholder="Enter buyer ID" name="buyerid">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="quantity"><strong style="font-size: large;">Quantity:</strong></label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" style="background-color: #f2f2f2" id="quantity" placeholder="Enter quantity" name="quantity">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="sale_date"><strong style="font-size: large;">Date of sale:</strong></label>
+                                <div class="col-sm-10">
+                                    <input type="date" class="form-control" style="background-color: #f2f2f2" id="sale_date" placeholder="Enter date of sale" name="sale_date">
+                                </div>
+                            </div>
+                            <div class="form-group text-center">        
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" name="sell_equipment" class="btn btn-primary btn-lg">Submit</button>
+                                </div>
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,166 @@
+<html>
+    <head>
+        <title>Company Details</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        
+    </head>
+    <body>
+        <div class='container-fluid p-0'>
+            <nav class="navbar navbar-default bg-primary">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a href="https://inventoms.herokuapp.com/home" class="navbar-brand text-light"><h2>MyInventory</h2></a>
+                    </div>
+                     <ul class="nav navbar-nav">
+                        <div class="row">
+                            <div class="col">
+                                <li><a class="text-light" href="https://inventoms.herokuapp.com/buyer"><h5>Buyers</h5></a></li>
+                            </div>
+                            <div class="col">
+                                <li><a class="text-light" href="https://inventoms.herokuapp.com/technician"><h5>Technician</h5></a></li>
+                            </div>
+                            <div class="col">
+                                <li><a class="text-light" href="https://inventoms.herokuapp.com/company/details"><h5>Company Details</h5></a></li>
+                            </div>
+                            <div class="col">
+                                <li><a class="text-light" href="https://inventoms.herokuapp.com/other_godowns"><h5>Other gowdowns</h5></a></li>
+                            </div>
+                            <div class="col">
+                                <li><a class="text-light" href="https://inventoms.herokuapp.com/logout"><h5>Logout</h5></a></li>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </nav>
+            <div class="row">
+                <div class="col-sm-3">
+                    <ul class="list-group p-0">
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/equipment/form" class="text-dark"><h5>Add Equipment</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/edit_equip/rform" class="text-dark"><h5>Remove Equipment</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/edit_equip/change_quantity_form" class="text-dark"><h5>Change equipment quantity</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/edit_equip/change_price_form" class="text-dark"><h5>Change equipment price</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/buyer/aform" class="text-dark"><h5>Add a new buyer</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/technician/afrom" class="text-dark"><h5>Add a new technician</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/buyer/rform" class="text-dark"><h5>Remove a buyer</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/technician/rform" class="text-dark"><h5>Remove a technician</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/sell_equipment/form" class="text-dark"><h5>Sell an equipment</h5></a></li>
+                        <li class="list-group-item"><a href="https://inventoms.herokuapp.com/maintenance/aform" class="text-dark"><h5>Add Maintenance</h5></a></li><li class="list-group-item"><a href="https://inventoms.herokuapp.com/sell_equip/transactions" class="text-dark"><h5>Sale history</h5></a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-9 p-4">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card bg-primary p-3 mb-3">
+                                <h4 class="card-title text-light">Equipment overview</h4>
+                                <hr class="bg-light">
+                                <div class="row">
+                                    <div class="col card-text p-2 text-light">ID:<h3 id="id"></h3></div>
+                                    <div class="col card-text p-2 text-light">Name:<h3 id="name"></h3></div>
+                                    <div class="col card-text p-2 text-light">Cost:<h3 id ="cost"></h3></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col card-text p-2 text-light">Quantity:<h3 id = "quantity"></h3></div>
+                                    <div class="col card-text p-2 text-light">Godown ID:<h3 id ="godownid"></h3></div>
+                                    <div class="col card-text p-2 text-light">Company ID:<h3 id ="companyid"></h3></div>
+                                </div>
+                                <canvas id="canvas"></canvas>
+                                <!-- <div class="row">
+                                    <div class="col">
+                                        <form action="/sell_equip_form" method="get">
+                                            <div class="text-center">        
+                                                <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" name="sell_equipment" class="btn btn-danger btn-lg">Sell this equipment</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col"> -->
+                                    
+                                            <div class="text-center">        
+                                                <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" name="sell_equipment" class="btn btn-danger btn-lg" onclick="redirectTo()">View maintainence history</button>
+                                            </div>
+                                        
+                                    <!-- </div>
+                                </div> -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function redirectTo(){
+            window.location = "https://inventoms.herokuapp.com/maintenance";
+
+            // Sets the new href (URL) for the current window.
+            window.location.href = "https://inventoms.herokuapp.com/maintenance";
+
+            // Assigns a new URL to the current window.
+            window.location.assign("https://inventoms.herokuapp.com/maintenance");
+
+            // Replaces the location of the current window with the new one.
+            window.location.replace("https://inventoms.herokuapp.com/maintenance");
+
+            // Sets the location of the current window itself.
+            self.location = "https://inventoms.herokuapp.com/maintenance";
+
+            // Sets the location of the topmost window of the current window.
+            top.location = "https://inventoms.herokuapp.com/maintenance";
+
+
+            }
+        </script>
+
+        <script>
+            var temp;
+            var temp1;
+            var temp2;
+            var temp3;
+            var temp4;
+            var temp5;
+            console.log("d"+document.cookie)
+            fetch(`https://inventoms.herokuapp.com/get_equip/${document.cookie}`).then(
+                res=>{
+                    res.json().then(
+                        data=>{
+                            console.log(data);
+                            if(data.length >0){
+                                temp = "";
+                                temp1 = "";
+                                temp2 = "";
+                                temp3 = "";
+                                temp4 = "";
+                                temp5 = "";
+
+                                data.forEach(element => {
+                                    temp += element.id
+                                    temp1 += element.name
+                                    temp2 += element.cost
+                                    temp3 += element.quantity
+                                    temp4 += element.godownid   
+                                    temp5 += element.companyid
+                                });
+
+                                document.getElementById("id").innerHTML = temp;
+                                document.getElementById("name").innerHTML = temp1;
+                                document.getElementById("cost").innerHTML = temp2;
+                                document.getElementById("quantity").innerHTML = temp3;
+                                document.getElementById("godownid").innerHTML = temp4;
+                                document.getElementById("companyid").innerHTML = temp5;
+                            }
+                        }
+                    )
+                }
+            )
+
+            
+        </script>
+    </body>
+</html>
