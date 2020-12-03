@@ -21,9 +21,10 @@ signupRouter.post('/',async(req,res,next)=>{
   req.session.gst = gst;
   req.session.email = email;
 
-  client.query("INSERT INTO users(name,email,password) VALUES ($1, $2, crypt($3, gen_salt('bf', 8)));", [name, email, password]);
+  await client.query("INSERT INTO users(name,email,password) VALUES ($1, $2, crypt($3, gen_salt('bf', 8)));", [name, email, password]);
 
   const resp = await client.query("SELECT uid FROM users WHERE email =$1;",[email]);
+
   req.session.uid = resp.rows[0].uid;
 
   // Checking if company exists

@@ -1,4 +1,4 @@
-CREATE TABLE equipment(id INTEGER PRIMARY KEY, 
+CREATE TABLE equipment(id SERIAL PRIMARY KEY, 
 name VARCHAR,
 cost INTEGER,
 quantity INTEGER,

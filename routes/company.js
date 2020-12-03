@@ -26,7 +26,7 @@ companyRouter.post('/add',async(req,res,next)=>{
 
   client.query("INSERT INTO godown(address,companyid,inid) VALUES ($1,$2,$3);",[godownaddress,resp.rows[0].id,uid]);
 
-  basicRedirect(res,next,"/login_form");
+  basicRedirect(res,next,"/login/form");
 
   res.end();
   next();
@@ -45,10 +45,10 @@ companyRouter.get('/',async(req,res,next)=>{
 
 companyRouter.get("/details",async(req,res,next) =>{
   if(req.session.email){
-    res.sendFile('public/company_details.html' , { root : __dirname})
+    res.sendFile(path.resolve('public/company_details.html'));
   }
   else{
-    basicRedirect(res,next,"/login_form")
+    basicRedirect(res,next,"/login/form")
   }
 });
 

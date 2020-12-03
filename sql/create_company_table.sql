@@ -1,6 +1,7 @@
-CREATE TABLE company(id INTEGER PRIMARY KEY,  
+CREATE TABLE company(id SERIAL PRIMARY KEY,  
 name VARCHAR,
 email VARCHAR,
-password VARCHAR,
-gst VARCHAR
-no_of_godowns INTEGER);
+address VARCHAR,
+phone INTEGER,
+gst VARCHAR,
+no_of_godowns INTEGER DEFAULT 0);

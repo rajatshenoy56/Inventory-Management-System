@@ -20,7 +20,7 @@ module.exports = app => {
   app.use('/edit_equip',edit_equipment);
   app.use('/sell_equip',sell_equipment);
   app.use('/buyer',buyer);
-  app.use('/technicinan',technician);
-  app.use('/maintenacne',maintenance);
+  app.use('/technician',technician);
+  app.use('/maintenance',maintenance);
   // etc..
 }

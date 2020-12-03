@@ -23,7 +23,7 @@ maintenanceRouter.post('/add',async(req,res,next)=>{
   const date = req.body.date;
   const remarks = req.body.remarks;
   
-  client.query("INSERT INTO maintainence VALUES ($1, $2, $3, $4);", [id,eid,date,remarks]);
+  client.query("INSERT INTO maintenance(equipmentid,technicianid,maintenance_date,remarks) VALUES ($1, $2, $3, $4);", [eid,id,date,remarks]);
   basicRedirect(res,next,"/home");
   res.end();
   next();
@@ -41,7 +41,7 @@ maintenanceRouter.get("/",async(req,res,next) =>{
 
 
 maintenanceRouter.get('/:id',async(req,res,next)=>{
-  const {rows} = await client.query("SELECT maintainence.equipmentid equipmentid, maintainence.technicianid technicianid, maintainence.maintainence_date date, maintainence.remarks remarks, technician.name technician_name, equipment.name equipment_name FROM maintainence INNER JOIN equipment ON maintainence.equipmentid=equipment.id INNER JOIN technician ON maintainence.technicianid=technician.id WHERE maintainence.equipmentid=$1;", [req.params.id]);
+  const {rows} = await client.query("SELECT maintenance.equipmentid equipmentid, maintenance.technicianid technicianid, maintenance.maintenance_date date, maintenance.remarks remarks, technician.name technician_name, equipment.name equipment_name FROM maintenance INNER JOIN equipment ON maintenance.equipmentid=equipment.id INNER JOIN technician ON maintenance.technicianid=technician.id WHERE maintenance.equipmentid=$1;", [req.params.id]);
   console.log(rows);
   res.json(rows);
   next();

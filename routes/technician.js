@@ -16,13 +16,15 @@ technicianRouter.get("/aform",async(req,res,next) =>{
 });
 
 
-technicianRouter.post('add',async(req,res,next)=>{
+technicianRouter.post('/add',async(req,res,next)=>{
   const name = req.body.name;
+  const email = req.body.email;
+  const password = req.body.password;
   const address = req.body.address;
   const phone = req.body.phone;
   const godownid = req.session.godownid;
   
-  client.query("INSERT INTO technician(name,address,phone,godownid) VALUES ($1, $2, $3, $4);", [name, address, phone, godownid]);
+  client.query("INSERT INTO technician(name,address,phone,godownid,email,password) VALUES ($1, $2, $3, $4,$5,$6);", [name, address, phone, godownid, email, password]);
   basicRedirect(res,next,"/home");
   res.end();
   next();

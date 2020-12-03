@@ -6,7 +6,6 @@ const { Pool } = require('pg')
 //   password: 'rajat',
 //   port: 5432,
 // })
-
 module.exports = {
   async query(text, params) {
     const start = Date.now()

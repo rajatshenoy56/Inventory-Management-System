@@ -18,11 +18,11 @@ buyerRouter.get("/aform",async(req,res,next) =>{
 
 buyerRouter.post('/add',async(req,res,next)=>{
   const name = req.body.name;
-  const email = req.body.email;
-  const password = req.body.password;
+  const phone = req.body.phone;
+  const address = req.body.address;
   const godownid = req.session.godownid;
 
-  client.query("INSERT INTO buyer(name,email,password,godownid) VALUES ($1, $2, crypt($3, gen_salt('bf', 8)), $4);", [name, email, password, godownid]);
+  client.query("INSERT INTO buyer(name,phone,address,godownid) VALUES ($1, $2, $3, $4);", [name, phone, address, godownid]);
   basicRedirect(res,next,"/home");
   res.end();
   next();

@@ -18,7 +18,7 @@ basicRouter.get("/other_godowns",async(req,res,next) =>{
 basicRouter.get('/godowns',async(req,res,next)=>{
   const companyid = req.session.companyid;
   const godownid = req.session.godownid;
-  const {rows} = await client.query("SELECT id,address,phone FROM godown WHERE companyid=$1 AND id!=$2;",[companyid, godownid]);
+  const {rows} = await client.query("SELECT id,address FROM godown WHERE companyid=$1 AND id!=$2;",[companyid, godownid]);
   console.log(rows);
   res.json(rows);
   next();

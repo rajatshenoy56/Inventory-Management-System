@@ -1,7 +1,7 @@
-CREATE TABLE sale_transaction(id INTEGER PRIMARY KEY,
+CREATE TABLE sale_transaction(id SERIAL PRIMARY KEY,
 equipmentid INTEGER REFERENCES equipment(id),   
 buyerid INTEGER REFERENCES buyer(id),
 quantity INTEGER,
 sale_date DATE,
-godown_id INTEGER REFERENCES godown(id),
+godownid INTEGER REFERENCES godown(id),
 value INTEGER);
