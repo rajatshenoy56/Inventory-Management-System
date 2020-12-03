@@ -3,4 +3,4 @@ CREATE TRIGGER remove_equipment
     ON equipment
     FOR EACH ROW
     EXECUTE PROCEDURE
-    remove_equipment_func();
+    func_remove_equipment();

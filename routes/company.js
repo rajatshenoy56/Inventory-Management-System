@@ -45,10 +45,10 @@ companyRouter.get('/',async(req,res,next)=>{
 
 companyRouter.get("/details",async(req,res,next) =>{
   if(req.session.email){
-      res.sendFile('public/company_details.html' , { root : __dirname})
+    res.sendFile('public/company_details.html' , { root : __dirname})
   }
   else{
-      basicRedirect(res,next,"/login_form")
+    basicRedirect(res,next,"/login_form")
   }
 });
 

@@ -3,4 +3,4 @@ CREATE TRIGGER add_godown
     ON godown 
     FOR EACH ROW
     EXECUTE PROCEDURE 
-    add_godown_func();
+    func_add_godown();

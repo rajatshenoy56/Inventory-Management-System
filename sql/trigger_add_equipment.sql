@@ -3,4 +3,4 @@ CREATE TRIGGER add_equipment
     ON equipment 
     FOR EACH ROW
     EXECUTE PROCEDURE
-    add_equipment_func()
+    func_add_equipment();

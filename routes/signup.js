@@ -28,23 +28,14 @@ signupRouter.post('/',async(req,res,next)=>{
 
   // Checking if company exists
   const respon = await client.query("SELECT * FROM company WHERE gst =$1;",[gst]);
-  if(respon.rows.length === 1){  
-      //Checking if godown exists
-      const respo = await client.query("SELECT * FROM godown where address=$1;",[godownaddress]);
-      if(respo.rows.length === 1){   
-          //Deleting duplicates
-          client.query("DELETE FROM users WHERE email = $1; and godownid = NULL;",[email]);
-          basicRedirect(res,next,"/login/form");
-      }
-      else{   
-          //Inserting into godown
-          client.query("INSERT INTO godown(address,companyid,inid) VALUES ($1,$2,$3)",[godownaddress,respon.rows[0].id,req.session.uid]);
-          basicRedirect(res,next,"/login/form")
-      } 
+  if(respon.rows.length === 1){    
+    //Inserting into godown
+    client.query("INSERT INTO godown(address,companyid,inid) VALUES ($1,$2,$3)",[godownaddress,respon.rows[0].id,req.session.uid]);
+    basicRedirect(res,next,"/login/form")
   }
   else{   
-      //add a company
-      basicRedirect(res,next,"/company/form");
+    //add a company
+    basicRedirect(res,next,"/company/form");
   }
   res.end();
   next();
